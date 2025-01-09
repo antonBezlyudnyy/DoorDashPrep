@@ -8,11 +8,35 @@
 import SwiftUI
 
 struct CarouselView: View {
+    private let imageURLs: [String]!
+    @State private var currentIndex: Int = 0
+    
+    init(imageURLs: [String]!) {
+        self.imageURLs = imageURLs
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView(selection: $currentIndex) {
+            ForEach(imageURLs.indices, id: \.self) { index in
+                if let imageURL = URL(string: imageURLs[index]) {
+                    AsyncImage(url: imageURL) { image in
+                        image
+                            .resizable()
+                            .scaledToFit()
+                            .clipped()
+                    } placeholder: {
+                        ProgressView()
+                            .progressViewStyle(.circular)
+                    }
+                }
+            }
+        }
+        .tabViewStyle(.page(indexDisplayMode: .automatic))
+        .indexViewStyle(.page(backgroundDisplayMode: .always))
+        .frame(height: 200)
     }
 }
 
 #Preview {
-    CarouselView()
+    CarouselView(imageURLs: ["", ""])
 }

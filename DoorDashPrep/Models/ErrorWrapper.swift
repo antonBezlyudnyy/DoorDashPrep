@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct ErrorWrapper: Identifiable {
+    let id = UUID()
+    var message: String
+}

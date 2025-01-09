@@ -1,0 +1,15 @@
+{
+  "originHash" : "0992256ae3c5f6e498a8d1af5e41626073b0687ff67c6ffefe96a9e68438df0c",
+  "pins" : [
+    {
+      "identity" : "corenetworking",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/antonBezlyudnyy/CoreNetworking.git",
+      "state" : {
+        "revision" : "8cf65653090f1271633e9093545bd2c597d6a53d",
+        "version" : "1.0.1"
+      }
+    }
+  ],
+  "version" : 3
+}
